@@ -7,7 +7,7 @@ from zebra.widgets import NoNameSelect, NoNameTextInput
 
 
 class MonospaceForm(forms.Form):
-    def addError(self, message):
+    def add_error(self, message):
         self._errors[NON_FIELD_ERRORS] = self.error_class([message])
 
 
