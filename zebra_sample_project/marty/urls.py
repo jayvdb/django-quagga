@@ -1,6 +1,6 @@
-from django.conf.urls.defaults import *
+from django.conf.urls import url
 from marty import views
 
-urlpatterns = patterns('',          
-    url(r'update$',     views.update,          name='update'),
-)
+urlpatterns = [
+    url(r'^update$', views.update, name='update'),
+]

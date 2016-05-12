@@ -1,15 +1,10 @@
-
-from django.http import HttpResponseRedirect
-from django.shortcuts import render_to_response, redirect
-from django.template import RequestContext
-from django.http import HttpResponse
-from django.utils import simplejson
-from zebra.conf import options
-
 import stripe
-stripe.api_key = options.STRIPE_SECRET
+from django.shortcuts import render
 
+from zebra.conf import options
 from zebra.forms import StripePaymentForm
+
+stripe.api_key = options.STRIPE_SECRET
 
 
 # In a real implementation, do login required, etc.
@@ -20,7 +15,6 @@ def update(request):
     if request.method == 'POST':
         zebra_form = StripePaymentForm(request.POST)
         if zebra_form.is_valid():
-
             customer = stripe.Customer.retrieve(user.stripe_id)
             customer.card = zebra_form.cleaned_data['stripe_token']
             customer.save()
@@ -35,11 +29,8 @@ def update(request):
     else:
         zebra_form = StripePaymentForm()
 
-    return render_to_response('marty/basic_update.html',
-        {
-          'zebra_form': zebra_form,
-          'publishable': options.STRIPE_PUBLISHABLE,
-          'success_updating': success_updating,
-        },
-        context_instance=RequestContext(request)
-    )
+    return render(request, 'marty/basic_update.html', {
+        'zebra_form': zebra_form,
+        'publishable': options.STRIPE_PUBLISHABLE,
+        'success_updating': success_updating,
+    })
