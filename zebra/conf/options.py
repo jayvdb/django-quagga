@@ -6,7 +6,6 @@ import os
 
 from django.conf import settings as _settings
 
-
 if hasattr(_settings, 'STRIPE_PUBLISHABLE'):
     STRIPE_PUBLISHABLE = getattr(_settings, 'STRIPE_PUBLISHABLE')
 else:
@@ -25,16 +24,16 @@ else:
 
 ZEBRA_ENABLE_APP = getattr(_settings, 'ZEBRA_ENABLE_APP', False)
 ZEBRA_AUTO_CREATE_STRIPE_CUSTOMERS = getattr(_settings,
-    'ZEBRA_AUTO_CREATE_STRIPE_CUSTOMERS', True)
+                                             'ZEBRA_AUTO_CREATE_STRIPE_CUSTOMERS', True)
 
 _today = datetime.date.today()
 ZEBRA_CARD_YEARS = getattr(_settings, 'ZEBRA_CARD_YEARS',
-    range(_today.year, _today.year+12))
+                           range(_today.year, _today.year + 12))
 ZEBRA_CARD_YEARS_CHOICES = getattr(_settings, 'ZEBRA_CARD_YEARS_CHOICES',
-    [(i,i) for i in ZEBRA_CARD_YEARS])
+                                   [(i, i) for i in ZEBRA_CARD_YEARS])
 
 ZEBRA_MAXIMUM_STRIPE_CUSTOMER_LIST_SIZE = getattr(_settings,
-    'ZEBRA_MAXIMUM_STRIPE_CUSTOMER_LIST_SIZE', 100)
+                                                  'ZEBRA_MAXIMUM_STRIPE_CUSTOMER_LIST_SIZE', 100)
 
 _audit_defaults = {
     'active': 'active',
@@ -49,9 +48,9 @@ _audit_defaults = {
 ZEBRA_AUDIT_RESULTS = getattr(_settings, 'ZEBRA_AUDIT_RESULTS', _audit_defaults)
 
 ZEBRA_ACTIVE_STATUSES = getattr(_settings, 'ZEBRA_ACTIVE_STATUSES',
-    ('active', 'past_due', 'trialing'))
+                                ('active', 'past_due', 'trialing'))
 ZEBRA_INACTIVE_STATUSES = getattr(_settings, 'ZEBRA_INACTIVE_STATUSES',
-    ('cancelled', 'suspended', 'unpaid', 'no_subscription'))
+                                  ('cancelled', 'suspended', 'unpaid', 'no_subscription'))
 
 if ZEBRA_ENABLE_APP:
     ZEBRA_CUSTOMER_MODEL = getattr(_settings, 'ZEBRA_CUSTOMER_MODEL', 'zebra.Customer')
