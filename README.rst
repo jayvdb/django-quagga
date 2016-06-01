@@ -7,7 +7,7 @@ Zebra is a library that makes using Stripe with Django even easier.
 Quagga is a fork of the original Django Zebra library. See the note on
 compatibility below.
 
-.. image:: quagga.jpg
+.. image:: https://github.com/bennylope/django-quagga/raw/master/quagga.jpg
 
 It's made of:
 
