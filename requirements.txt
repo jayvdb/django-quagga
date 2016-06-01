@@ -1,2 +1,4 @@
 stripe
 django
+readme
+twine

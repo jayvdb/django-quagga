@@ -42,6 +42,7 @@ build: clean  ## Create distribution files for release
 	python setup.py sdist bdist_wheel
 
 release: build  ## Create distribution files and publish to PyPI
+	python setup.py check -r -s
 	twine upload dist/*
 
 sdist: clean  ## Create source distribution only
