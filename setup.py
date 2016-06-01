@@ -18,6 +18,9 @@ setup(
     packages=find_packages(),
     zip_safe=False,
     include_package_data=True,
+    install_requires=[
+        'stripe>=1.0.0',
+    ],
     classifiers=[
         "Programming Language :: Python",
         "License :: OSI Approved :: MIT License",
