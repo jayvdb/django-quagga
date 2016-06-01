@@ -1,18 +1,18 @@
 #!/usr/bin/env python
 
-import os
 from setuptools import setup, find_packages
 
-ROOT_DIR = os.path.dirname(__file__)
-SOURCE_DIR = os.path.join(ROOT_DIR)
+readme = open('README.rst').read()
+history = open('HISTORY.rst').read().replace('.. :changelog:', '')
 
 setup(
     name="django-quagga",
     description="Library for Django and Stripe",
+    long_description=readme + '\n\n' + history,
     author="Steven Skoczen",
     author_email="steven@agoodcloud.com",
     maintainer="Ben Lopatin",
-    maintainer_meail="ben@benlopatin.com",
+    maintainer_email="ben@benlopatin.com",
     url="https://github.com/bennylope/django-quagga",
     version="0.5.0",
     packages=find_packages(),
