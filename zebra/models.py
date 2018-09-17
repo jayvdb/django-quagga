@@ -1,26 +1,30 @@
+from future.utils import python_2_unicode_compatible
+
 from django.db import models
 
 from zebra import mixins
 from zebra.conf import options
 
 
+@python_2_unicode_compatible
 class StripeCustomer(models.Model, mixins.StripeMixin, mixins.StripeCustomerMixin):
     stripe_customer_id = models.CharField(max_length=50, blank=True, null=True)
 
     class Meta:
         abstract = True
 
-    def __unicode__(self):
+    def __str__(self):
         return u"%s" % self.stripe_customer_id
 
 
+@python_2_unicode_compatible
 class StripePlan(models.Model, mixins.StripeMixin, mixins.StripePlanMixin):
     stripe_plan_id = models.CharField(max_length=50, blank=True, null=True)
 
     class Meta:
         abstract = True
 
-    def __unicode__(self):
+    def __str__(self):
         return u"%s" % self.stripe_plan_id
 
 
@@ -48,11 +52,12 @@ if options.ZEBRA_ENABLE_APP:
     class Plan(DatesModelBase, StripePlan):
         pass
 
+    @python_2_unicode_compatible
     class Subscription(DatesModelBase, StripeSubscription):
         customer = models.ForeignKey(Customer)
         plan = models.ForeignKey(Plan)
 
-        def __unicode__(self):
+        def __str__(self):
             return u"%s: %s" % (self.customer, self.plan)
 
         @property

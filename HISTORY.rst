@@ -3,6 +3,16 @@
 History
 =======
 
+0.6.1
+-----
+
+Fix some Python3 compatability issue.
+
+0.6.0
+-----
+
+Add working logging into webhooks.
+
 0.5.0
 -----
 

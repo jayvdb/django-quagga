@@ -154,7 +154,7 @@ Zebra also provides an easy map of all the signals as
 Zebra signal (`zebra_webhook_charge_succeeded`). To assign a handler to all the
 signals that zebra sends, for example, loop over the items in the map::
 
-    for event_key, webhook_signal in WEBHOOK_MAP.iteritems():
+    for event_key, webhook_signal in WEBHOOK_MAP.items():
         webhook_signal.connect(webhook_logger)
 
 Forms

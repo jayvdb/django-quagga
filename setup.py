@@ -14,7 +14,7 @@ setup(
     maintainer="Ben Lopatin",
     maintainer_email="ben@benlopatin.com",
     url="https://github.com/bennylope/django-quagga",
-    version="0.6.0",
+    version="0.6.1",
     packages=find_packages(),
     zip_safe=False,
     include_package_data=True,
